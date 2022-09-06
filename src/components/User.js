@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Modal } from 'react-bootstrap';
-import EditUserForm from './EditUserForm';
+import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
+import EditUserForm from "./EditUserForm";
 
 function User({ userData, deleteUser, handleEdit }) {
   const [show, setShow] = useState(false);
@@ -23,26 +23,26 @@ function User({ userData, deleteUser, handleEdit }) {
           />
         </Modal.Body>
       </Modal>
-      <div className='card m-2' style={{ width: '18rem' }}>
-        <div className='card-body'>
-          <h5 className='card-title'>Name: {userData.name}</h5>
-          <h6 className='card-subtitle mb-2 text-muted'>
+      <div className="card m-2" style={{ width: "18rem" }}>
+        <div className="card-body">
+          <h5 className="card-title">Name: {userData.name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">
             Email: {userData.email}
           </h6>
-          <p className='card-text'>Gen: {userData.gen}</p>
+          <p className="card-text">Gen: {userData.gen}</p>
           <a
-            class='btn btn-primary mr-3'
-            href='#'
+            className="btn btn-primary mr-3"
+            href="#"
             onClick={handleShow}
-            role='button'
+            role="button"
           >
             Edit
           </a>
           <a
-            class='btn btn-danger'
-            href='#'
+            className="btn btn-danger"
+            href="#"
             onClick={handleDelete}
-            role='button'
+            role="button"
           >
             Delete
           </a>

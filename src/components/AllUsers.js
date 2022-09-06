@@ -1,11 +1,13 @@
-import User from './User';
+import { connect, useSelector } from "react-redux";
+import User from "./User";
 
-function AllUsers({ userData, deleteUser, handleEdit }) {
+function AllUsers({ deleteUser, handleEdit }) {
+  const { users } = useSelector((store) => store);
   return (
     <>
-      <div class='container'>
-        <div className='row'>
-          {userData.map((item, index) => {
+      <div className="container">
+        <div className="row">
+          {users.map((item, index) => {
             return (
               <User
                 key={index}
@@ -20,5 +22,12 @@ function AllUsers({ userData, deleteUser, handleEdit }) {
     </>
   );
 }
+// const mapState = (state) => {
+//   return {
+//     users: state.users,
+//   };
+// };
+
+// export default connect(mapState)(AllUsers);
 
 export default AllUsers;

@@ -1,13 +1,15 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
-import AddUserForm from './components/AddUserForm';
-import AllUsers from './components/AllUsers';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
+import AddUserForm from "./components/AddUserForm";
+import AllUsers from "./components/AllUsers";
 
 function App() {
-  const [users, setUsers] = useState([
-    { name: 'Terry', email: 'terry@gmail.com', gen: 22, id: '1659431731207' },
-    { name: 'Ash', email: 'ash@gmail.com', gen: 25, id: '1659431734534' },
-  ]);
+  const [users, setUsers] =
+    useState();
+    //   [
+    //   { name: 'Terry', email: 'terry@gmail.com', gen: 22, id: '1659431731207' },
+    //   { name: 'Ash', email: 'ash@gmail.com', gen: 25, id: '1659431734534' },
+    // ]
 
   const handleSubmit = (user) => {
     setUsers([
@@ -32,12 +34,12 @@ function App() {
   };
   return (
     <>
-      <div className='container'>
-        <div className='row mt-5'>
-          <div className='col-md-6'>
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col-md-6">
             <AddUserForm addUser={handleSubmit} />
           </div>
-          <div className='col-md-6'>
+          <div className="col-md-6">
             <AllUsers
               userData={users}
               deleteUser={deleteUser}
