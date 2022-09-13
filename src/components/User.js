@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import EditUserForm from "./EditUserForm";
+import { useDispatch } from "react-redux";
+import { DeleteUser } from "../actions/userActions";
 
 function User({ userData, deleteUser, handleEdit }) {
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleDelete = () => {
-    deleteUser(userData.id);
+    dispatch(DeleteUser(userData.id));
   };
   return (
     <>
@@ -30,22 +33,20 @@ function User({ userData, deleteUser, handleEdit }) {
             Email: {userData.email}
           </h6>
           <p className="card-text">Gen: {userData.gen}</p>
-          <a
+          <button
             className="btn btn-primary mr-3"
-            href="#"
             onClick={handleShow}
-            role="button"
+            // role="button"
           >
             Edit
-          </a>
-          <a
+          </button>
+          <button
             className="btn btn-danger"
-            href="#"
             onClick={handleDelete}
-            role="button"
+            // role="button"
           >
             Delete
-          </a>
+          </button>
         </div>
       </div>
     </>
