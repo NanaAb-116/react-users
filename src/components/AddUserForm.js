@@ -2,16 +2,23 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { v4 as uuidv4 } from "uuid";
-import { useDispatch, connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AddNewUser } from "../actions/userActions";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 
-function AddUserForm({ AddNewUser }) {
+function AddUserForm() {
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [gen, setGen] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    AddNewUser({ name, email, gen, id: uuidv4() });
+    let newUser = { name, email, gen, id: uuidv4() };
+    // dispatch(AddNewUser({ name, email, gen, id: uuidv4() }));
+    await setDoc(doc(db, "users", newUser.id), {
+      newUser,
+    });
     setName("");
     setEmail("");
     setGen("");
@@ -57,6 +64,5 @@ function AddUserForm({ AddNewUser }) {
     </Form>
   );
 }
-const mapDispatch = { AddNewUser: AddNewUser };
 
-export default connect(null, mapDispatch)(AddUserForm);
+export default AddUserForm;

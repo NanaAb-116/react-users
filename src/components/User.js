@@ -4,7 +4,7 @@ import EditUserForm from "./EditUserForm";
 import { useDispatch } from "react-redux";
 import { DeleteUser } from "../actions/userActions";
 
-function User({ userData, deleteUser, handleEdit }) {
+function User({ userData, handleEdit }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

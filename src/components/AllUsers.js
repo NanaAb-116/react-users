@@ -1,4 +1,4 @@
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import User from "./User";
 
 function AllUsers({ deleteUser, handleEdit }) {
