@@ -22,12 +22,5 @@ function AllUsers({ deleteUser, handleEdit }) {
     </>
   );
 }
-// const mapState = (state) => {
-//   return {
-//     users: state.users,
-//   };
-// };
-
-// export default connect(mapState)(AllUsers);
 
 export default AllUsers;
