@@ -14,12 +14,13 @@ function EditUserForm({ userData, hide }) {
   const [gen, setGen] = useState(userData.gen);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userRef = doc(db, "users", userData.id);
-
-    // Set the "capital" field of the city 'DC'
-    await updateDoc(userRef, {
-      userData,
-    });
+    let userInfo = { name, id: userData.id, email, gen };
+    try {
+      const userRef = doc(db, "users", userData.id);
+      await updateDoc(userRef, userInfo);
+    } catch (error) {
+      console.log(error);
+    }
 
     dispatch(EditUser({ id: userData.id, name, email, gen }));
     setName("");
