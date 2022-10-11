@@ -1,11 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  query,
-  querySnapshot,
-} from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AddNewUser } from "./actions/userActions";
