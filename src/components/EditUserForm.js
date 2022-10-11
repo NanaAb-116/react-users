@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { EditUser } from "../actions/userActions";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 
 function EditUserForm({ userData, hide }) {
   const dispatch = useDispatch();
@@ -10,8 +12,15 @@ function EditUserForm({ userData, hide }) {
   const [name, setName] = useState(userData.name);
   const [email, setEmail] = useState(userData.email);
   const [gen, setGen] = useState(userData.gen);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const userRef = doc(db, "users", userData.id);
+
+    // Set the "capital" field of the city 'DC'
+    await updateDoc(userRef, {
+      userData,
+    });
+
     dispatch(EditUser({ id: userData.id, name, email, gen }));
     setName("");
     setEmail("");
