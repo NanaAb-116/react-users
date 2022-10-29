@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import User from "./User";
 
 function AllUsers({ deleteUser, handleEdit }) {
-  const { users } = useSelector((store) => store);
+  const users = useSelector((state) => {
+    return state.UsersReducer.users;
+  });
   return (
     <>
       <div className="container">

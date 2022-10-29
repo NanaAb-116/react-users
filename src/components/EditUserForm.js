@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { EditUser } from "../actions/userActions";
-import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 
 function EditUserForm({ userData, hide }) {
