@@ -38,10 +38,10 @@ input {
   border-radius: 4px;
 }
 .form button:active {
-  box-shadow: inset 2px 1px 7px black;
+  box-shadow: inset 1px 1px 7px black;
 }
 img {
-  height: 1.5rem;
+  height: 1rem;
   margin-right: 8px;
 }
 .sign-out {
