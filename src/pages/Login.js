@@ -48,7 +48,8 @@ function Login() {
     setPassword("");
   };
 
-  const authenticateWithGoogle = async () => {
+  const authenticateWithGoogle = async (e) => {
+    e.preventDefault();
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
